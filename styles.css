@@ -944,26 +944,60 @@ section {
     line-height: 1.5;
     border-left: 2px solid var(--primary);
     padding-left: 14px;
+    margin-bottom: 16px;
+}
+
+.instagram-post-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 4px;
+    transition: all 0.2s ease;
+    border: 1px solid var(--border-color-glow);
+    padding: 8px 16px;
+    border-radius: 6px;
+    background-color: rgba(194, 255, 10, 0.03);
+}
+
+.instagram-post-link:hover {
+    color: var(--text-light);
+    background-color: rgba(194, 255, 10, 0.1);
+    transform: translateY(-2px);
+    box-shadow: var(--glow-shadow-small);
+}
+
+.instagram-post-link svg {
+    transition: transform 0.2s ease;
+}
+
+.instagram-post-link:hover svg {
+    transform: scale(1.15) rotate(-10deg);
 }
 
 /* Testimonials Grid styling */
 .testimonials-grid {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 16px;
 }
 
 .testimonial-card {
-    padding: 24px;
+    padding: 16px;
 }
 
 .test-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    margin-bottom: 12px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 12px;
+    margin-bottom: 0px;
+    border-bottom: none;
+    padding-bottom: 0px;
 }
 
 .test-name {
@@ -1003,9 +1037,26 @@ section {
     display: flex;
     gap: 16px;
     align-items: center;
-    margin-bottom: 16px;
-    border-bottom: 1px solid var(--border-color);
-    padding-bottom: 16px;
+    margin-bottom: 0px;
+    border-bottom: none;
+    padding-bottom: 0px;
+}
+
+.testimonial-card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 16px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 12px;
+}
+
+.testimonial-card-footer .swap-action-label {
+    font-size: 0.75rem;
+    color: var(--primary);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
 }
 
 .client-thumb-wrapper {

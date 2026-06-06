@@ -37,6 +37,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quote: 'Bob has well and truly SMASHED his 12-week programme. Single-digit body fat %, down from trouser size 36 to 32, strongest he has ever been, and the most knowledgeable he has ever been. Having left no stone unturned, his high standards have shone.',
             instagram: '',
             instagramLink: '#',
+            postLink: 'https://www.instagram.com/jdavis_coaching/p/DLfpM-QsQps/',
             imageThumb: 'images/transformation_bob.png',
             imageBefore: 'images/transformation_bob_before.png',
             imageAfter: 'images/transformation_bob_after.png'
@@ -50,6 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quote: 'Chris came to me adamant that this would be the time he achieves his dream physique. Despite family bereavements two weeks in, and running two busy businesses with very limited time, he didn\'t quit. He fell in love with the structure, routine, and dropped 15kg of fat.',
             instagram: '@chrisstanton01',
             instagramLink: 'https://www.instagram.com/chrisstanton01/',
+            postLink: 'https://www.instagram.com/jdavis_coaching/p/DNv2kTjWJl8/',
             imageThumb: 'images/transformation_chris.png',
             imageBefore: 'images/transformation_chris_before.png',
             imageAfter: 'images/transformation_chris_after.png'
@@ -63,6 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
             quote: 'Craig came to me wanting to achieve his absolute best physique. We mastered tracking food and gym intensity together. Not only has he achieved the look he wanted, but his life has changed—getting out of bed, productivity, drive, work ethic, and relationships.',
             instagram: '@thecraigus',
             instagramLink: 'https://www.instagram.com/thecraigus/',
+            postLink: 'https://www.instagram.com/jdavis_coaching/p/DNLvYMXsAK1/',
             imageThumb: 'images/transformation_craig.png',
             imageBefore: 'images/transformation_craig_before.png',
             imageAfter: 'images/transformation_craig_after.png'
@@ -76,14 +79,57 @@ document.addEventListener('DOMContentLoaded', () => {
             quote: 'Ethan wanted to get peeled for his holiday. Having tried the usual keto nonsense with endless cardio, he was stuck. Introducing Ethan to high-carb structured eating, we fueled him properly to build/retain muscle while melting the fat. He was a robot to the plan.',
             instagram: '@ethanlbaxter',
             instagramLink: 'https://www.instagram.com/ethanlbaxter/',
+            postLink: 'https://www.instagram.com/jdavis_coaching/p/DYxY6PtDE8L/',
             imageThumb: 'images/transformation_ethan.png',
             imageBefore: 'images/transformation_ethan_before.png',
             imageAfter: 'images/transformation_ethan_after.png'
+        },
+        xavier: {
+            id: 'xavier',
+            name: 'Xavier Roy',
+            goal: 'Beginner Shred',
+            badgeGoal: '-10kg (22lbs)',
+            timeframe: '12 Weeks',
+            quote: 'Prior to starting, Xavier had no gym experience, never cooked, and never tracked food. With the right plan, guidance, and structure, we completely transformed his body from a keyboard 10,000 miles away.',
+            instagram: '@its.xavierroy',
+            instagramLink: 'https://www.instagram.com/its.xavierroy/',
+            postLink: 'https://www.instagram.com/jdavis_coaching/p/DYKyzNeDEkl/',
+            imageThumb: 'images/transformation_xavier.png',
+            imageBefore: 'images/transformation_xavier_before.png',
+            imageAfter: 'images/transformation_xavier_after.png'
+        },
+        leah: {
+            id: 'leah',
+            name: 'Leah',
+            goal: 'Food Relationship & Fat Loss',
+            badgeGoal: '-86lbs (39kg)',
+            timeframe: 'Fat Loss Phase',
+            quote: 'Leah had made some progress but was using weight-loss jabs, believing starving herself was the only way forward. We did the opposite: more food, more fuel, and more trust. She rebuilt her relationship with food and went from 236lbs to 150lbs.',
+            instagram: '',
+            instagramLink: '#',
+            postLink: 'https://www.instagram.com/jdavis_coaching/p/DTYa5a_DJJx/',
+            imageThumb: 'images/transformation_leah.png',
+            imageBefore: 'images/transformation_leah_before.png',
+            imageAfter: 'images/transformation_leah_after.png'
+        },
+        tom: {
+            id: 'tom',
+            name: 'Tom Smith',
+            goal: 'Wedding Day Shred & Night Shifts',
+            badgeGoal: '-2 Stone (28lbs)',
+            timeframe: 'Wedding Prep',
+            quote: 'Tom came to me wanting to get in shape for his wedding but had fallen out of love with the gym, with low confidence and feeling shite. Despite working demanding on-call night shifts, he nailed his calories/macros and workouts to drop 2 stone.',
+            instagram: '@tom_smithx1',
+            instagramLink: 'https://www.instagram.com/tom_smithx1/',
+            postLink: 'https://www.instagram.com/jdavis_coaching/p/DWzDOHRDFpZ/',
+            imageThumb: 'images/transformation_tom.png',
+            imageBefore: 'images/transformation_tom_before.png',
+            imageAfter: 'images/transformation_tom_after.png'
         }
     };
 
     let featuredClientId = 'bob';
-    let rightStackIds = ['chris', 'craig', 'ethan'];
+    let rightStackIds = ['chris', 'craig', 'ethan', 'xavier', 'leah', 'tom'];
 
     const slider = document.getElementById('before-after-slider');
     const handle = document.getElementById('slider-handle');
@@ -109,6 +155,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const featuredName = document.getElementById('featured-client-name');
         const featuredStat = document.getElementById('featured-client-stat');
         const featuredQuote = document.getElementById('featured-client-quote');
+        const featuredInstaLink = document.getElementById('featured-client-insta-link');
         
         if (sliderBeforeImg && sliderAfterImg) {
             sliderBeforeImg.src = featured.imageBefore;
@@ -120,6 +167,9 @@ document.addEventListener('DOMContentLoaded', () => {
         if (featuredName) featuredName.textContent = `Featured Client: ${featured.name}`;
         if (featuredStat) featuredStat.textContent = `Goal: ${featured.goal} | Timeframe: ${featured.timeframe}`;
         if (featuredQuote) featuredQuote.textContent = `"${featured.quote}"`;
+        if (featuredInstaLink) {
+            featuredInstaLink.href = featured.postLink || '#';
+        }
         
         // Reset slider drag percentage to 50/50
         if (beforeContainer && handle) {
@@ -155,12 +205,9 @@ document.addEventListener('DOMContentLoaded', () => {
                             <span class="test-tag">${client.timeframe}</span>
                         </div>
                     </div>
-                    <p class="test-text">
-                        "${client.quote.substring(0, 180)}..."
-                    </p>
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-top: 12px; border-top: 1px solid var(--border-color); padding-top: 12px;">
+                    <div class="testimonial-card-footer">
                         ${client.instagram ? `<a href="${client.instagramLink}" target="_blank" rel="noopener noreferrer" class="instagram-handle-link" onclick="event.stopPropagation();">${client.instagram}</a>` : '<span></span>'}
-                        <span class="swap-action-label" style="font-size: 0.75rem; color: var(--primary); font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em;">Feature Client ↑</span>
+                        <span class="swap-action-label">Feature Client ↑</span>
                     </div>
                 `;
                 
