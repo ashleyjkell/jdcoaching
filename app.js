@@ -387,6 +387,25 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    const highlightContactForm = () => {
+        const formCard = document.querySelector('.form-card');
+        if (formCard) {
+            setTimeout(() => {
+                formCard.style.borderColor = 'var(--primary)';
+                formCard.style.boxShadow = '0 0 25px rgba(255, 10, 58, 0.3)';
+                
+                // Focus on name input
+                const nameInput = document.getElementById('user-name');
+                if (nameInput) nameInput.focus();
+                
+                setTimeout(() => {
+                    formCard.style.borderColor = 'var(--border-color)';
+                    formCard.style.boxShadow = 'var(--card-shadow)';
+                }, 2000);
+            }, 500);
+        }
+    };
+
     const calculateQuizResults = () => {
         const programNameEl = document.getElementById('recommended-program-name');
         const programDescEl = document.getElementById('recommended-program-desc');
@@ -405,21 +424,40 @@ document.addEventListener('DOMContentLoaded', () => {
         let recommendedTitle = '';
         let recommendedDesc = '';
 
-        if (quizData.goal === 'fatloss' && quizData.days === '2-3') {
-            recommendedTitle = '12-Week Body & Mind Reset';
-            recommendedDesc = 'Our structured 12-week framework is engineered specifically for fast, efficient fat loss and habit formation to reclaim your physical baseline.';
-        } else if (quizData.goal === 'recomp' && quizData.exp === 'beginner') {
-            recommendedTitle = 'Training & Nutrition Blueprint';
-            recommendedDesc = 'The ultimate customized starter roadmap. Provides exact lifting guides and metabolic targets for self-motivated recompositions.';
-        } else {
-            recommendedTitle = 'Elite 1-on-1 Online Coaching';
-            recommendedDesc = 'Our premium, fully customized, high-touch coaching service featuring daily Whatsapp access, video form checks, and weekly adjustments to force progress.';
+        if (quizData.goal === 'muscle') {
+            recommendedTitle = 'Bulking Plan';
+            recommendedDesc = 'Hypertrophy-focused program designed to build athletic muscle size, strength, and optimize physical capacity.';
+        } else if (quizData.goal === 'fatloss') {
+            if (quizData.days === '2-3' || quizData.exp === 'beginner') {
+                recommendedTitle = '6 Week Shred Plan';
+                recommendedDesc = 'High-intensity fat loss sprint designed to strip body fat rapidly with minimal time commitment.';
+            } else {
+                recommendedTitle = '12 Week Shred Plan';
+                recommendedDesc = 'Comprehensive 12-week body reset engineered to optimize fat loss, retain muscle mass, and upgrade metabolic health.';
+            }
+        } else { // recomp
+            recommendedTitle = '12 Week Shred Plan';
+            recommendedDesc = 'Our recomposition system designed to simultaneously build muscle and drop fat over a dedicated 12-week cycle.';
+        }
+
+        let recommendedPrice = '';
+        if (recommendedTitle === '6 Week Shred Plan') {
+            recommendedPrice = '£39.99';
+        } else if (recommendedTitle === '12 Week Shred Plan') {
+            recommendedPrice = '£69.99';
+        } else if (recommendedTitle === 'Bulking Plan') {
+            recommendedPrice = '£49.99';
         }
 
         if (programNameEl && programDescEl) {
             programNameEl.textContent = recommendedTitle;
             programDescEl.textContent = recommendedDesc;
             btnApplyQuizResult.setAttribute('data-target-program', recommendedTitle);
+            if (recommendedPrice) {
+                btnApplyQuizResult.textContent = `Buy Recommended Plan - ${recommendedPrice}`;
+            } else {
+                btnApplyQuizResult.textContent = 'Claim Recommended Program';
+            }
         }
     };
 
@@ -446,27 +484,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
             if (contactSection) {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
-                
-                const formCard = document.querySelector('.form-card');
-                if (formCard) {
-                    formCard.style.borderColor = 'var(--primary)';
-                    formCard.style.boxShadow = 'var(--glow-shadow-strong)';
-                    setTimeout(() => {
-                        formCard.style.borderColor = 'var(--border-color)';
-                        formCard.style.boxShadow = 'var(--card-shadow)';
-                    }, 1500);
-                }
+                highlightContactForm();
             }
         });
     }
 
     const serviceBtns = document.querySelectorAll('.service-btn');
     serviceBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
+        btn.addEventListener('click', (e) => {
             const program = btn.getAttribute('data-program');
             const programDropdown = document.getElementById('user-program');
+            const contactSection = document.getElementById('contact');
+            
             if (programDropdown && program) {
                 programDropdown.value = program;
+            }
+            
+            if (contactSection) {
+                highlightContactForm();
             }
         });
     });
@@ -547,9 +582,54 @@ document.addEventListener('DOMContentLoaded', () => {
 
             resultsBoard.classList.remove('hidden');
 
+            // Update the calorie text placeholder in custom meal plan promo card
+            const mealPlanCalPlaceholder = document.getElementById('meal-plan-cal-placeholder');
+            if (mealPlanCalPlaceholder) {
+                mealPlanCalPlaceholder.textContent = finalCalorieTotal;
+            }
+
+            // Save calculated values to a global object for the buy button
+            window.latestCalculatedMacros = {
+                calories: finalCalorieTotal,
+                protein: proteinGrams,
+                carbs: carbsGrams,
+                fats: fatsGrams
+            };
+
             setTimeout(() => {
                 resultsBoard.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
             }, 100);
+        });
+    }
+
+    // Wire up Custom Meal Plan buy button in calculator results
+    const btnBuyCustomMealPlan = document.getElementById('btn-buy-custom-meal-plan');
+    if (btnBuyCustomMealPlan) {
+        btnBuyCustomMealPlan.addEventListener('click', (e) => {
+            e.preventDefault();
+            const programDropdown = document.getElementById('user-program');
+            const struggleField = document.getElementById('user-struggle');
+            const contactSection = document.getElementById('contact');
+            
+            if (programDropdown) {
+                programDropdown.value = 'Custom Macro Meal Plan';
+            }
+            
+            if (window.latestCalculatedMacros) {
+                const macros = window.latestCalculatedMacros;
+                if (struggleField) {
+                    struggleField.value = `I'd like to order a Custom Macro Meal Plan based on my calculated results:\n- Target: ${macros.calories} kcal\n- Protein: ${macros.protein}g\n- Carbs: ${macros.carbs}g\n- Fats: ${macros.fats}g`;
+                }
+            } else {
+                if (struggleField) {
+                    struggleField.value = "I'd like to order a Custom Macro Meal Plan matching my calculated macros.";
+                }
+            }
+            
+            if (contactSection) {
+                contactSection.scrollIntoView({ behavior: 'smooth' });
+                highlightContactForm();
+            }
         });
     }
 

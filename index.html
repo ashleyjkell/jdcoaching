@@ -23,6 +23,14 @@
     <header class="header" id="navbar">
         <div class="container header-container">
             <a href="#" class="logo">
+                <!-- Logo Placeholder (Jack to Send) -->
+                <div class="logo-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="logo-svg">
+                        <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                        <polyline points="12 22 12 12 22 8.5"></polyline>
+                        <polyline points="12 12 2 8.5"></polyline>
+                    </svg>
+                </div>
                 <span class="logo-accent">JD</span><span class="logo-text">COACHING</span>
             </a>
             
@@ -386,7 +394,33 @@
                                         <span class="macro-calorie" id="results-fats-cal">-- kcal</span>
                                     </div>
                                 </div>
-                                <span class="calculator-disclosure">*Calculations use the Mifflin-St Jeor equation. Individual metabolic rates vary. For a 100% accurate personalized layout, apply for coaching.</span>
+                                <span class="calculator-disclosure">*Calculations use the Mifflin-St Jeor equation. Individual metabolic rates vary.</span>
+
+                                <!-- Custom Macro Meal Plan Promo Card -->
+                                <div class="custom-meal-plan-card">
+                                    <div class="custom-meal-plan-header">
+                                        <div class="meal-plan-badge">MATCHED TO YOUR TARGETS</div>
+                                        <h5>Macro-Matched 7-Day Meal Plan</h5>
+                                        <p>Get a personalized 7-day meal plan mapped to your calculated <strong id="meal-plan-cal-placeholder">--</strong> kcal calorie target and macronutrient splits.</p>
+                                    </div>
+                                    <div class="custom-meal-plan-body">
+                                        <ul class="meal-plan-bullets">
+                                            <li><span class="bullet-check">✓</span> 5 different breakfast, lunch, and dinner options</li>
+                                            <li><span class="bullet-check">✓</span> High-protein recipes & exact ingredient weight lists</li>
+                                            <li><span class="bullet-check">✓</span> Nutrient timing sheet and meal spacing layout</li>
+                                            <li><span class="bullet-check">✓</span> Direct grocery list cheat sheet</li>
+                                        </ul>
+                                        <div class="meal-plan-price-action">
+                                            <div class="meal-plan-price-box">
+                                                <span class="meal-plan-price-val">£29.99</span>
+                                                <span class="meal-plan-price-sub">Digital Delivery</span>
+                                            </div>
+                                            <button type="button" class="btn btn-primary btn-sm" id="btn-buy-custom-meal-plan" data-program="Custom Macro Meal Plan">
+                                                Create My Food Plan
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -404,121 +438,139 @@
                 </div>
 
                 <div class="services-grid">
-                    <!-- Program 1: Elite Online Coaching -->
-                    <div class="premium-card service-card recommended">
-                        <div class="card-accent-badge">MOST POPULAR</div>
+                    <!-- Program 1: 6 Week Shred Plan -->
+                    <div class="premium-card service-card">
+                        <div class="service-card-image-container">
+                            <span class="img-placeholder-badge">6 WEEK SPRINT</span>
+                            <div class="service-card-image-placeholder gradient-shred">
+                                <span class="placeholder-icon">⚡</span>
+                            </div>
+                        </div>
                         <div class="card-header-accented">
-                            <h3 class="service-name">Elite 1-on-1 Online Coaching</h3>
-                            <p class="service-desc">Complete, high-touch training & nutrition system for maximum results.</p>
+                            <h3 class="service-name">6 Week Shred Plan</h3>
+                            <p class="service-desc">High-intensity fat loss sprint designed to strip body fat rapidly.</p>
                         </div>
                         <div class="card-body flex-column">
                             <ul class="service-features">
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Bespoke training program updated monthly</span>
+                                    <span>6-Week high-intensity shred training split (gym/home)</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Custom macro & flexible nutrition system</span>
+                                    <span>Target daily calorie deficit calculation</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Weekly video check-in and detailed form reviews</span>
+                                    <span>Interactive macro configuration template</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Direct 1-on-1 daily WhatsApp access to Coach Jack Davis</span>
+                                    <span>Shred nutrition framework & shopping guide</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Habit, sleep, stress & recovery dashboard tracking</span>
+                                    <span>Weekly self-assessment progress tracking sheet</span>
                                 </li>
                             </ul>
                             
                             <div class="price-box">
-                                <span class="price-val">Bespoke Pricing</span>
-                                <span class="price-sub">Requires Application & Assessment</span>
+                                <span class="price-val">£39.99</span>
+                                <span class="price-sub">One-Time Digital Purchase</span>
                             </div>
 
-                            <a href="#contact" class="btn btn-primary btn-block service-btn" data-program="Elite 1-on-1 Online Coaching">Apply For Elite Coaching</a>
+                            <a href="#contact" class="btn btn-secondary btn-block service-btn" data-program="6 Week Shred Plan">Buy Plan Now</a>
                         </div>
                     </div>
 
-                    <!-- Program 2: 12-Week Body Reset -->
-                    <div class="premium-card service-card">
+                    <!-- Program 2: 12 Week Shred Plan -->
+                    <div class="premium-card service-card recommended">
+                        <div class="card-accent-badge">RECOMMENDED</div>
+                        <div class="service-card-image-container">
+                            <span class="img-placeholder-badge">12 WEEK TRANSFORMATION</span>
+                            <div class="service-card-image-placeholder gradient-shred12">
+                                <span class="placeholder-icon">🔥</span>
+                            </div>
+                        </div>
                         <div class="card-header-accented">
-                            <h3 class="service-name">12-Week Body & Mind Reset</h3>
-                            <p class="service-desc">Intensive body recomposition program targeting fast, sustainable changes.</p>
+                            <h3 class="service-name">12 Week Shred Plan</h3>
+                            <p class="service-desc">Comprehensive body reset targeting maximum fat loss and muscle retention.</p>
                         </div>
                         <div class="card-body flex-column">
                             <ul class="service-features">
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Structured 12-week fat loss & core focus program</span>
+                                    <span>12-Week complete body recomposition layout</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Calorie target mapping & daily meal frameworks</span>
+                                    <span>Advanced progressive overload hypertrophy split</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Bi-weekly metric audit & adjustment check-ins</span>
+                                    <span>Detailed meal prep layouts & calorie guidelines</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Weekly mindset and habit coaching resources</span>
+                                    <span>Sleep, stress & metabolic recovery guides</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Access to member community group chat</span>
+                                    <span>Weekly bi-weekly metric audit sheets</span>
                                 </li>
                             </ul>
 
                             <div class="price-box">
-                                <span class="price-val">Sprint Pricing</span>
-                                <span class="price-sub">Paid in full or monthly installments</span>
+                                <span class="price-val">£69.99</span>
+                                <span class="price-sub">One-Time Digital Purchase</span>
                             </div>
 
-                            <a href="#contact" class="btn btn-secondary btn-block service-btn" data-program="12-Week Body & Mind Reset">Apply For 12-Week Reset</a>
+                            <a href="#contact" class="btn btn-primary btn-block service-btn" data-program="12 Week Shred Plan">Buy Plan Now</a>
                         </div>
                     </div>
 
-                    <!-- Program 3: Customized Blueprint -->
+                    <!-- Program 3: Bulking Plan -->
                     <div class="premium-card service-card">
+                        <div class="service-card-image-container">
+                            <span class="img-placeholder-badge">MUSCLE BUILDING</span>
+                            <div class="service-card-image-placeholder gradient-bulking">
+                                <span class="placeholder-icon">💪</span>
+                            </div>
+                        </div>
                         <div class="card-header-accented">
-                            <h3 class="service-name">Training & Nutrition Blueprint</h3>
-                            <p class="service-desc">A complete personalized roadmap for self-motivated individuals.</p>
+                            <h3 class="service-name">Bulking Plan</h3>
+                            <p class="service-desc">Hypertrophy-focused program to build athletic muscle and strength.</p>
                         </div>
                         <div class="card-body flex-column">
                             <ul class="service-features">
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>One-time custom 12-week training layout</span>
+                                    <span>Hypertrophy training split & progressive overload tracker</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Personalized TDEE & macro configuration sheet</span>
+                                    <span>Exact surplus calorie & protein configuration guide</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Meal prep blueprints & shopping lists</span>
+                                    <span>Mass builder grocery list & high-calorie templates</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>Individual supplement recommendation sheet</span>
+                                    <span>Muscle recovery, sleep & fatigue management protocols</span>
                                 </li>
                                 <li>
                                     <span class="feature-bullet">✓</span>
-                                    <span>1 kickoff call for program deployment review</span>
+                                    <span>Monthly progress tracker and check-in templates</span>
                                 </li>
                             </ul>
 
                             <div class="price-box">
-                                <span class="price-val">One-Time Blueprint</span>
-                                <span class="price-sub">Single blueprint payment</span>
+                                <span class="price-val">£49.99</span>
+                                <span class="price-sub">One-Time Digital Purchase</span>
                             </div>
 
-                            <a href="#contact" class="btn btn-secondary btn-block service-btn" data-program="Training & Nutrition Blueprint">Apply For Blueprint</a>
+                            <a href="#contact" class="btn btn-secondary btn-block service-btn" data-program="Bulking Plan">Buy Plan Now</a>
                         </div>
                     </div>
                 </div>
@@ -573,9 +625,10 @@
                                     <div class="form-group">
                                         <label for="user-program" class="form-label">Interested Program</label>
                                         <select id="user-program" class="form-input">
-                                            <option value="Elite 1-on-1 Online Coaching" selected>Elite 1-on-1 Online Coaching</option>
-                                            <option value="12-Week Body & Mind Reset">12-Week Body & Mind Reset</option>
-                                            <option value="Training & Nutrition Blueprint">Custom Training & Nutrition Blueprint</option>
+                                            <option value="6 Week Shred Plan" selected>6 Week Shred Plan (£39.99)</option>
+                                            <option value="12 Week Shred Plan">12 Week Shred Plan (£69.99)</option>
+                                            <option value="Bulking Plan">Bulking Plan (£49.99)</option>
+                                            <option value="Custom Macro Meal Plan">Custom Macro Meal Plan (£29.99)</option>
                                         </select>
                                     </div>
                                     <div class="form-group">
@@ -612,10 +665,20 @@
     <!-- Footer -->
     <footer class="footer">
         <div class="container footer-container">
-            <div class="footer-left">
-                <span class="logo-accent">JD</span><span class="logo-text">COACHING</span>
-                <p class="footer-tagline">Building powerful, healthy, sustainable physical transformations based on metabolic science and structured accountability.</p>
-            </div>
+             <div class="footer-left">
+                 <div class="logo">
+                     <!-- Logo Placeholder (Jack to Send) -->
+                     <div class="logo-placeholder">
+                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="logo-svg">
+                             <polygon points="12 2 22 8.5 22 15.5 12 22 2 15.5 2 8.5 12 2"></polygon>
+                             <polyline points="12 22 12 12 22 8.5"></polyline>
+                             <polyline points="12 12 2 8.5"></polyline>
+                         </svg>
+                     </div>
+                     <span class="logo-accent">JD</span><span class="logo-text">COACHING</span>
+                 </div>
+                 <p class="footer-tagline">Building powerful, healthy, sustainable physical transformations based on metabolic science and structured accountability.</p>
+             </div>
             
             <div class="footer-right">
                 <div class="footer-links-col">
