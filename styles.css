@@ -2138,3 +2138,134 @@ select.form-input option {
     }
 }
 
+
+/* Onboarding recommended plan highlighting style */
+.recommended-plan-highlight {
+    animation: recommendedPlanPulse 0.8s 3 alternate ease-in-out;
+}
+
+@keyframes recommendedPlanPulse {
+    from {
+        box-shadow: 0 15px 40px rgba(255, 10, 58, 0.08);
+        border-color: var(--border-color);
+        transform: scale(1);
+    }
+    to {
+        box-shadow: 0 0 35px rgba(255, 10, 58, 0.65);
+        border-color: var(--primary);
+        transform: scale(1.05);
+    }
+}
+
+/* Quiz Upsell CTA Callout box */
+.quiz-upsell-cta {
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--border-color);
+    text-align: center;
+}
+
+.quiz-upsell-text {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+    margin-bottom: 12px;
+}
+
+.label-optional {
+    font-size: 0.75rem;
+    color: var(--text-muted);
+    opacity: 0.7;
+    font-weight: normal;
+}
+
+/* Coaching Divider between digital plans and coaching service */
+.coaching-divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin: 60px 0 50px 0;
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+    color: var(--text-muted);
+}
+
+.coaching-divider::before,
+.coaching-divider::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid rgba(255, 10, 58, 0.12);
+}
+
+.coaching-divider:not(:empty)::before {
+    margin-right: 1.5em;
+}
+
+.coaching-divider:not(:empty)::after {
+    margin-left: 1.5em;
+}
+
+/* Coaching service container and centered application form */
+.coaching-service-container {
+    margin-top: 20px;
+    padding-top: 20px;
+    animation: fadeIn 0.8s ease;
+}
+
+.centered-form-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+
+.centered-form-card {
+    width: 100%;
+    max-width: 780px;
+}
+
+.centered-insta-card {
+    width: 100%;
+    max-width: 780px;
+    text-align: center;
+}
+
+/* Quiz Results Custom Button styling */
+.btn.btn-quiz-upsell {
+    background-color: var(--primary) !important;
+    color: var(--text-dark) !important;
+    border: 2px solid var(--primary) !important;
+    box-shadow: var(--glow-shadow-strong) !important;
+}
+
+.btn.btn-quiz-upsell:hover {
+    background-color: var(--primary-hover) !important;
+    color: var(--text-dark) !important;
+    box-shadow: 0 0 25px rgba(255, 10, 58, 0.65) !important;
+    transform: translateY(-3px);
+}
+
+.btn-quiz-retake {
+    background: transparent;
+    color: var(--text-muted);
+    border: none;
+    padding: 4px 8px;
+    font-size: 0.65rem;
+    font-family: var(--font-heading);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-top: 28px;
+    text-decoration: underline;
+    font-weight: 700;
+    display: inline-block;
+    width: auto;
+    cursor: pointer;
+    transition: color var(--transition-fast);
+}
+
+.btn-quiz-retake:hover {
+    color: var(--primary);
+}

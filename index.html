@@ -37,7 +37,7 @@
             <nav class="nav" id="nav-menu">
                 <a href="#about" class="nav-link">About Me</a>
                 <a href="#results" class="nav-link">Transformations</a>
-                <a href="#tools" class="nav-link">Fitness Tools</a>
+                <a href="#tools" class="nav-link">Find Your Plan</a>
                 <a href="#services" class="nav-link">Services</a>
                 <a href="#contact" class="btn btn-secondary btn-sm nav-cta">Apply Now</a>
             </nav>
@@ -70,7 +70,7 @@
                         Elite 1-on-1 online coaching for high-performers and busy individuals. Burn stubborn fat, build dense athletic muscle, and develop sustainable habits without giving up your lifestyle.
                     </p>
                     <div class="hero-actions">
-                        <a href="#quiz-wrapper" class="btn btn-primary">Find Your Plan</a>
+                        <a href="#tools" class="btn btn-primary">Find Your Plan</a>
                         <a href="#results" class="btn btn-secondary">See Transformations</a>
                     </div>
                     
@@ -154,7 +154,7 @@
         <section id="results" class="results-section">
             <div class="container">
                 <div class="section-header text-center">
-                    <span class="badge">CLIENT PROOF</span>
+                    <span class="badge">TRANSFORMATIONS</span>
                     <h2 class="section-title">REAL PEOPLE. REAL RESULTS.</h2>
                     <p class="section-subtitle">Witness the actual physical transformations achieved by clients under Coach Jack Davis's guidance.</p>
                 </div>
@@ -208,9 +208,9 @@
         <section id="tools" class="tools-section">
             <div class="container">
                 <div class="section-header text-center">
-                    <span class="badge">INTERACTIVE TOOLS</span>
+                    <span class="badge">FIND YOUR PLAN</span>
                     <h2 class="section-title">YOUR FIRST STEP TO TRANSFORMATION</h2>
-                    <p class="section-subtitle">Assess your goals instantly or calculate your daily calorie targets with our custom utility tools.</p>
+                    <p class="section-subtitle">Answer a few questions to find your matching transformation plan, or calculate your custom calorie and macro targets instantly.</p>
                 </div>
 
                 <div class="tools-layout" id="quiz-wrapper">
@@ -301,8 +301,15 @@
                                             <div class="summary-pill">Exp: <span id="summary-exp">--</span></div>
                                             <div class="summary-pill">Freq: <span id="summary-days">--</span></div>
                                         </div>
-                                        <button class="btn btn-primary btn-block btn-sm" id="btn-apply-quiz-result">Claim This Program & Apply</button>
-                                        <button class="btn btn-secondary btn-block btn-sm margin-top-xs" id="btn-restart-quiz">Retake Quiz</button>
+                                        <button class="btn btn-primary btn-block btn-sm" id="btn-apply-quiz-result">Buy Recommended Plan - £69.99</button>
+                                        
+                                        <!-- Coaching Upsell Call to Action -->
+                                        <div class="quiz-upsell-cta">
+                                            <p class="quiz-upsell-text">Want to get the absolute best results with direct training? Apply for bespoke Elite 1-on-1 Coaching with daily accountability and form review.</p>
+                                            <button class="btn btn-primary btn-block btn-sm btn-quiz-upsell" id="btn-quiz-upsell-coaching">Apply for Elite 1-on-1 Coaching</button>
+                                        </div>
+                                        
+                                        <button class="btn-quiz-retake" id="btn-restart-quiz">Retake Quiz</button>
                                     </div>
                                 </div>
                             </div>
@@ -432,14 +439,14 @@
         <section id="services" class="services-section">
             <div class="container">
                 <div class="section-header text-center">
-                    <span class="badge">MY SERVICES</span>
-                    <h2 class="section-title">HIGH-PERFORMANCE COACHING</h2>
-                    <p class="section-subtitle">Choose the level of support you need to crush your physical goals and upgrade your health.</p>
+                    <span class="badge">CHOOSE YOUR PROTOCOL</span>
+                    <h2 class="section-title">TRANSFORMATION BLUEPRINTS</h2>
+                    <p class="section-subtitle">Get instant access to structured training blueprints and nutritional plans engineered to fast-track your results.</p>
                 </div>
 
                 <div class="services-grid">
                     <!-- Program 1: 6 Week Shred Plan -->
-                    <div class="premium-card service-card">
+                    <div class="premium-card service-card" data-plan="6 Week Shred Plan">
                         <div class="service-card-image-container">
                             <span class="img-placeholder-badge">6 WEEK SPRINT</span>
                             <div class="service-card-image-placeholder gradient-shred">
@@ -484,7 +491,7 @@
                     </div>
 
                     <!-- Program 2: 12 Week Shred Plan -->
-                    <div class="premium-card service-card recommended">
+                    <div class="premium-card service-card recommended" data-plan="12 Week Shred Plan">
                         <div class="card-accent-badge">RECOMMENDED</div>
                         <div class="service-card-image-container">
                             <span class="img-placeholder-badge">12 WEEK TRANSFORMATION</span>
@@ -530,7 +537,7 @@
                     </div>
 
                     <!-- Program 3: Bulking Plan -->
-                    <div class="premium-card service-card">
+                    <div class="premium-card service-card" data-plan="Bulking Plan">
                         <div class="service-card-image-container">
                             <span class="img-placeholder-badge">MUSCLE BUILDING</span>
                             <div class="service-card-image-placeholder gradient-bulking">
@@ -574,22 +581,80 @@
                         </div>
                     </div>
                 </div>
-            </div>
-        </section>
 
-        <!-- Application & Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="contact-grid">
-                    <div class="contact-info">
-                        <div class="badge">APPLY NOW</div>
-                        <h2 class="section-title">START YOUR <br><span class="gradient-text">TRANSFORMATION.</span></h2>
-                        <p class="contact-desc">
-                            Ready to stop spinning your wheels and actually get the results you're after? Drop your details in the quick application form. I'll take a look at your goals and get back to you within 24 hours to see if we're a good fit to work together.
+                <!-- Section Divider -->
+                <div class="coaching-divider">
+                    <span>OR LEVEL UP TO ONE-ON-ONE CARE</span>
+                </div>
+
+                <!-- Elite 1-on-1 Coaching Section -->
+                <div class="coaching-service-container" id="contact">
+                    <div class="section-header text-center">
+                        <span class="badge">PREMIUM ACCOUNTABILITY</span>
+                        <h2 class="section-title">ELITE 1-ON-1 ONLINE COACHING</h2>
+                        <p class="section-subtitle text-center max-width-md">
+                            Ready to get guaranteed results under direct daily guidance? Apply for my premium Elite 1-on-1 Online Coaching program. I take on a limited number of clients to ensure high-touch accountability, weekly video checks, custom workout & nutrition protocols, and 24/7 direct access.
                         </p>
+                    </div>
 
-                        <!-- Direct Instagram Promotion Callout -->
-                        <div class="premium-card insta-card">
+                    <div class="centered-form-wrapper">
+                        <!-- Application Form Card -->
+                        <div class="premium-card form-card centered-form-card">
+                            <div class="card-header text-center">
+                                <h3 class="card-title-text">Elite Coaching Application Form</h3>
+                            </div>
+                            <div class="card-body">
+                                <form id="coaching-application-form">
+                                    <div class="form-grid">
+                                        <div class="form-group">
+                                            <label for="user-name" class="form-label">Your Name</label>
+                                            <input type="text" id="user-name" class="form-input" placeholder="e.g. Marcus K." required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="user-email" class="form-label">Email Address</label>
+                                            <input type="email" id="user-email" class="form-input" placeholder="e.g. marcus@gmail.com" required>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="user-insta" class="form-label">Instagram Handle (@) <span class="label-optional">(Optional)</span></label>
+                                            <input type="text" id="user-insta" class="form-input" placeholder="e.g. marcus_lifts">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="user-coached" class="form-label">Have you worked with a coach before?</label>
+                                            <select id="user-coached" class="form-input">
+                                                <option value="no" selected>No, I train on my own</option>
+                                                <option value="yes-online">Yes, I've had an online coach</option>
+                                                <option value="yes-pt">Yes, I've worked with a PT in-person</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="user-weight" class="form-label">Current Weight & Height</label>
+                                            <input type="text" id="user-weight" class="form-input" placeholder="e.g. 84kg, 180cm">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="user-goal" class="form-label">Primary Fitness Goal</label>
+                                            <input type="text" id="user-goal" class="form-input" placeholder="e.g. lose 10kg, build muscle">
+                                        </div>
+                                        <div class="form-group grid-span-2">
+                                            <label for="user-struggle" class="form-label">What is your biggest struggle right now?</label>
+                                            <textarea id="user-struggle" class="form-input form-textarea" placeholder="e.g. Consistency with nutrition, lack of structured programming, late night snacking..."></textarea>
+                                        </div>
+                                    </div>
+                                    <button type="submit" class="btn btn-primary btn-block margin-top-sm" id="btn-submit-application">Submit Application</button>
+                                </form>
+
+                                <!-- Success message panel -->
+                                <div class="form-success-message hidden" id="form-success-alert">
+                                    <div class="success-icon">✓</div>
+                                    <div class="success-content">
+                                        <h4>Application Received!</h4>
+                                        <p>Thank you for submitting your details. Coach Jack Davis will review your goals and message you on Instagram or email within 24 hours to schedule a consultation call.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Direct Instagram Promotion Callout Centered Stacked -->
+                        <div class="premium-card insta-card centered-insta-card margin-top-lg">
                             <div class="insta-header">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" class="insta-logo">
                                     <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
@@ -601,65 +666,11 @@
                             <p>Follow <a href="https://www.instagram.com/jdavis_coaching/" target="_blank" rel="noopener noreferrer" class="link-highlight">@jdavis_coaching</a> for daily fitness tips, training reels, client case studies, and healthy meal ideas.</p>
                         </div>
                     </div>
-
-                    <!-- Application Form -->
-                    <div class="premium-card form-card">
-                        <div class="card-header">
-                            <h3 class="card-title-text">Transformation Application Form</h3>
-                        </div>
-                        <div class="card-body">
-                            <form id="coaching-application-form">
-                                <div class="form-grid">
-                                    <div class="form-group">
-                                        <label for="user-name" class="form-label">Your Name</label>
-                                        <input type="text" id="user-name" class="form-input" placeholder="e.g. Marcus K." required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="user-email" class="form-label">Email Address</label>
-                                        <input type="email" id="user-email" class="form-input" placeholder="e.g. marcus@gmail.com" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="user-insta" class="form-label">Instagram Handle (@)</label>
-                                        <input type="text" id="user-insta" class="form-input" placeholder="e.g. marcus_lifts" required>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="user-program" class="form-label">Interested Program</label>
-                                        <select id="user-program" class="form-input">
-                                            <option value="6 Week Shred Plan" selected>6 Week Shred Plan (£39.99)</option>
-                                            <option value="12 Week Shred Plan">12 Week Shred Plan (£69.99)</option>
-                                            <option value="Bulking Plan">Bulking Plan (£49.99)</option>
-                                            <option value="Custom Macro Meal Plan">Custom Macro Meal Plan (£29.99)</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="user-weight" class="form-label">Current Weight & Height</label>
-                                        <input type="text" id="user-weight" class="form-input" placeholder="e.g. 84kg, 180cm">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="user-goal" class="form-label">Primary Fitness Goal</label>
-                                        <input type="text" id="user-goal" class="form-input" placeholder="e.g. lose 10kg, build muscle">
-                                    </div>
-                                    <div class="form-group grid-span-2">
-                                        <label for="user-struggle" class="form-label">What is your biggest struggle right now?</label>
-                                        <textarea id="user-struggle" class="form-input form-textarea" placeholder="e.g. Consistency with nutrition, lack of structured programming, late night snacking..."></textarea>
-                                    </div>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-block margin-top-sm" id="btn-submit-application">Submit Application</button>
-                            </form>
-
-                            <!-- Success message panel -->
-                            <div class="form-success-message hidden" id="form-success-alert">
-                                <div class="success-icon">✓</div>
-                                <div class="success-content">
-                                    <h4>Application Received!</h4>
-                                    <p>Thank you for submitting your details. Coach Jack Davis will review your goals and message you on Instagram or email within 24 hours to schedule a consultation call.</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </section>
+
+
     </main>
 
     <!-- Footer -->
@@ -685,7 +696,7 @@
                     <strong>Navigation</strong>
                     <a href="#about">About Me</a>
                     <a href="#results">Transformations</a>
-                    <a href="#tools">Fitness Tools</a>
+                    <a href="#tools">Find Your Plan</a>
                     <a href="#services">Services</a>
                 </div>
                 

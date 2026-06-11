@@ -465,22 +465,45 @@ document.addEventListener('DOMContentLoaded', () => {
         btnApplyQuizResult.addEventListener('click', () => {
             const recommendedProgram = btnApplyQuizResult.getAttribute('data-target-program');
             
-            const programDropdown = document.getElementById('user-program');
-            const goalField = document.getElementById('user-goal');
+            const servicesSection = document.getElementById('services');
+            if (servicesSection) {
+                servicesSection.scrollIntoView({ behavior: 'smooth' });
+                
+                // Clear recommended styling and badges from all cards
+                const cards = document.querySelectorAll('.service-card');
+                cards.forEach(card => {
+                    card.classList.remove('recommended');
+                    card.classList.remove('recommended-plan-highlight');
+                    
+                    const existingBadge = card.querySelector('.card-accent-badge');
+                    if (existingBadge) {
+                        existingBadge.remove();
+                    }
+                });
+
+                // Find and highlight the recommended plan card, shifting the RECOMMENDED badge
+                const targetCard = document.querySelector(`.service-card[data-plan="${recommendedProgram}"]`);
+                if (targetCard) {
+                    targetCard.classList.add('recommended');
+                    
+                    const badge = document.createElement('div');
+                    badge.className = 'card-accent-badge';
+                    badge.textContent = 'RECOMMENDED';
+                    targetCard.insertBefore(badge, targetCard.firstChild);
+                    
+                    // Trigger glow highlight transition
+                    setTimeout(() => {
+                        targetCard.classList.add('recommended-plan-highlight');
+                    }, 500);
+                }
+            }
+        });
+    }
+
+    const btnQuizUpsellCoaching = document.getElementById('btn-quiz-upsell-coaching');
+    if (btnQuizUpsellCoaching) {
+        btnQuizUpsellCoaching.addEventListener('click', () => {
             const contactSection = document.getElementById('contact');
-
-            if (programDropdown) {
-                programDropdown.value = recommendedProgram;
-            }
-
-            if (goalField && quizData.goal) {
-                const goalsTextMap = {
-                    'fatloss': 'Lose body fat, lean down',
-                    'muscle': 'Build athletic muscle & strength',
-                    'recomp': 'Burn fat and build muscle simultaneously (recomp)'
-                };
-                goalField.value = goalsTextMap[quizData.goal] || '';
-            }
 
             if (contactSection) {
                 contactSection.scrollIntoView({ behavior: 'smooth' });
@@ -493,11 +516,11 @@ document.addEventListener('DOMContentLoaded', () => {
     serviceBtns.forEach(btn => {
         btn.addEventListener('click', (e) => {
             const program = btn.getAttribute('data-program');
-            const programDropdown = document.getElementById('user-program');
+            const struggleField = document.getElementById('user-struggle');
             const contactSection = document.getElementById('contact');
             
-            if (programDropdown && program) {
-                programDropdown.value = program;
+            if (struggleField && program) {
+                struggleField.value = `I am interested in purchasing the ${program}. Please contact me with details!`;
             }
             
             if (contactSection) {
@@ -607,13 +630,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (btnBuyCustomMealPlan) {
         btnBuyCustomMealPlan.addEventListener('click', (e) => {
             e.preventDefault();
-            const programDropdown = document.getElementById('user-program');
             const struggleField = document.getElementById('user-struggle');
             const contactSection = document.getElementById('contact');
-            
-            if (programDropdown) {
-                programDropdown.value = 'Custom Macro Meal Plan';
-            }
             
             if (window.latestCalculatedMacros) {
                 const macros = window.latestCalculatedMacros;
@@ -646,10 +664,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
             const name = document.getElementById('user-name').value.trim();
             const email = document.getElementById('user-email').value.trim();
-            const insta = document.getElementById('user-insta').value.trim();
 
-            if (!name || !email || !insta) {
-                alert('Please fill in your name, email, and Instagram handle to apply.');
+            if (!name || !email) {
+                alert('Please fill in your name and email address to apply.');
                 return;
             }
 
